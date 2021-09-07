@@ -87,6 +87,11 @@ class Add(Function):
         y = x0 + x1
         return y
 
+    # 13.1章 可変長引数に対応したAddクラスの逆伝搬
+    #足し算の逆伝搬は「出力から伝わる微分に１をかけた値」が入力変数(x0, x1)の微分になる
+    def backward(self,gy):
+        return gy, gy
+
 def square(x):
     f = Square()
     return f(x)
